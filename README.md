@@ -32,7 +32,7 @@ Caso esteja executando esse exemplo em uma maquina local, pode verificar os serv
   * http://localhost:8000/emhsexemplo/hello?nome=francisco&idade=28
 
 ## Outros exemplos
-### Personalizar url de serviço:
+##### Personalizar url de serviço:
 
 ```Java
 @Service("nomePersonalizado")
@@ -41,7 +41,7 @@ public class EmhsExemplo {
 A url resultante seria:
   * http://localhost:8000/nomepersonalizado/hello
 
-### Personalizar url no metodo:
+##### Personalizar url no metodo:
 
 ```Java	
 	@Path("helloPersonalizado")

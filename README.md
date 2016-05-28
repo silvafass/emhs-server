@@ -31,6 +31,35 @@ Caso esteja executando esse exemplo em uma maquina local, pode verificar os serv
   * http://localhost:8000/emhsexemplo/hello
   * http://localhost:8000/emhsexemplo/hello?nome=francisco&idade=28
 
+## Outros exemplos
+### Personalizar url de serviço:
+
+```Java
+@Service("nomePersonalizado")
+public class EmhsExemplo {
+```
+A url resultante seria:
+  * http://localhost:8000/nomepersonalizado/hello
+
+### Personalizar url no metodo:
+
+```Java	
+	@Path("helloPersonalizado")
+	public String hello() {
+```
+A url resultante seria:
+  * http://localhost:8000/emhsexemplo/hellopersonalizado
+
+> também é possivel combinar as @Service com @Path para personalizar nomes tanto na declaração da classe quanto no nome do metodo.
+
 ====================================================================================================
 
 Projeto exemplo: [Emhs Exemplo](https://github.com/silvafass/emhs-exemplo)
+
+====================================================================================================
+
+## Objetivo
+Criar um meio de expor serviços http de forma minimalista.
+## Recursos futuros
+* Suporte a SSL
+* Cliente java(Emhs Client)

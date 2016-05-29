@@ -8,17 +8,17 @@ Emhs Server ou Expose Method Http Service Server, é um projeto que oferece um s
 ```Java
 @Service
 public class EmhsExemplo {
-	
+
 	public String hello() {
 		return "Hello World";
 	}
-	
+
 	public String hello(String nome, Integer idade) {
 		return "Ola "+nome+" sua idade é "+idade;
 	}
-	
+
 	public static void main(String[] args) throws IOException {
-		new EmhsServer(8000).start();
+		Emhs.server(8000).start();
 	}
 }
 ```
@@ -43,12 +43,57 @@ A url resultante seria:
 
 ##### Personalizar url no metodo:
 
-```Java	
-	@Path("helloPersonalizado")
-	public String hello() {
+```Java
+@Path("helloPersonalizado")
+public String hello() {
 ```
 A url resultante seria:
   * http://localhost:8000/emhsexemplo/hellopersonalizado
+ 
+##### Servir e publicar conteudo estatico:
+Dessa maneira é possivel publicar paginas html ou mesmo sites completos, O endereço path tem que ser absoluto.
+
+```Java
+//Em sistema Windows
+Emhs.config().setPathStatics("c:/public");
+
+//Em sistema GNU/Linux
+Emhs.config().setPathStatics("/home/username/public");
+```
+A url para visualizar o site publicado:
+  * http://localhost:8000
+ 
+##### Defir uma classe como serviço:
+
+```Java
+//Pode usar a anotação @Service.
+@Service
+public class EmhsExemplo {
+```
+
+##### Configurar diferentes formas de defir uma classe como serviço:
+
+```Java
+//Pode configurar uma ou mais Annotation.
+Emhs.config().setScanAnnotation(AnnatationPersonalizada.class);
+Emhs.server(8000).start();
+
+//A definição ficaria assim
+@AnnatationPersonalizada
+public class EmhsExemplo {
+
+//ou...
+
+//Pode configurar uma ou mais SuperClasses ou Interfaces.
+Emhs.config().setScanClass(SuperClasseOuInterfacePersonalizada.class);
+Emhs.server(8000).start();
+
+//A definição ficaria assim em caso de suprclase
+public class EmhsExemplo extends SuperClassePersonalizada {
+
+//A definição ficaria assim em caso de Interface
+public class EmhsExemplo implements InterfacePersonalizada {
+```
 
 > também é possivel combinar as @Service com @Path para personalizar nomes tanto na declaração da classe quanto no nome do metodo.
 

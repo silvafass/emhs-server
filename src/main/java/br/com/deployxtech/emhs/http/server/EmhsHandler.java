@@ -27,8 +27,8 @@ import br.com.deployxtech.emhs.utils.SearchUtils;
 public class EmhsHandler implements HttpHandler {
 
 	private RouterControl routerControl = new RouterControl();
-	
-	public EmhsHandler() {
+
+	protected EmhsHandler() {
 		List<Class<?>> types = SearchUtils.scan();
 		for (Class<?> type: types) {
 			routerControl.createProvider(type);

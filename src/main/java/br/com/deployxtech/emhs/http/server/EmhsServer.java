@@ -15,11 +15,12 @@ import br.com.deployxtech.emhs.http.filters.ServiceFilter;
  * @author Francisco Silva
  *
  */
-public class EmhsServer {
+@SuppressWarnings("restriction")
+public final class EmhsServer {
 
 	public final static int DEFAULT_PORT = 80;
 
-	protected HttpServer server;
+	public HttpServer server;
 
 	public EmhsServer() throws IOException {
 		this(EmhsServer.DEFAULT_PORT);

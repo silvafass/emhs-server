@@ -1,7 +1,7 @@
 # emhs-server
 Emhs Server ou Expose Method Http Service Server, é um projeto que oferece um servidor para Emhs.
 
-====================================================================================================
+---
 
 ##### Exemplo Simples
 
@@ -97,11 +97,11 @@ public class EmhsExemplo implements InterfacePersonalizada {
 
 > também é possivel combinar as @Service com @Path para personalizar nomes tanto na declaração da classe quanto no nome do metodo.
 
-====================================================================================================
+---
 
 Projeto exemplo: [Emhs Exemplo](https://github.com/silvafass/emhs-exemplo)
 
-====================================================================================================
+---
 
 ## Objetivo
 Criar um meio de expor serviços http de forma minimalista.
